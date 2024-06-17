@@ -23,8 +23,8 @@ app.use((req, res, next) => {
 });
 
 createNestServer(app)
-  .then(() => {
-    module.exports = serverless(app); // Ensure this is exported correctly
+  .then((appInstance) => {
+    module.exports = serverless(appInstance); // Ensure this is exported correctly
   })
   .catch(err => {
     console.error('Error during server initialization', err);

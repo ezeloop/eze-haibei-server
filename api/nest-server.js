@@ -12,7 +12,7 @@ async function createNestServer(expressApp) {
   });
 
   await app.init();
-  return app;
+  return expressApp;
 }
 
 module.exports = { createNestServer };
