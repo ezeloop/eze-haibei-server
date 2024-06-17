@@ -7,8 +7,6 @@ let server: any;
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  console.log('FRONT_END_URL', process.env.FRONT_END_URL)
-
   app.enableCors({
     origin: process.env.FRONT_END_URL,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',

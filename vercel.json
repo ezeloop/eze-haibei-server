@@ -11,5 +11,8 @@
       "src": "/(.*)",
       "dest": "/dist/main.js"
     }
-  ]
+  ],
+  "env": {
+    "FRONT_END_URL": "https://haibei-and-eze.netlify.app"
+  }
 }
