@@ -24,6 +24,11 @@ export class TasksController {
     return this.tasksService.findById(id);
   }
 
+   @Get('/folder/:folderId')
+  findByFolderId(@Param('folderId') folderId: string): Promise<Task[]> {
+    return this.tasksService.findByFolderId(folderId);
+  }
+
   @Put(':id')
   update(@Param('id') id: string, @Body() updateTaskDto: UpdateTaskDto): Promise<Task> {
     return this.tasksService.update(id, updateTaskDto);

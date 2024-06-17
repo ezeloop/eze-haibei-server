@@ -31,6 +31,10 @@ export class TasksService {
     return this.taskModel.findById(id).exec();
   }
 
+   async findByFolderId(folderId: string): Promise<Task[]> {
+    return this.taskModel.find({ folderId }).exec();
+  }
+
    async update(id: string, updateTaskDto: UpdateTaskDto): Promise<Task> {
     try {
       if (updateTaskDto.folderId) {
