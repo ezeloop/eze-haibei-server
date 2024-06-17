@@ -1,4 +1,4 @@
-const { NestFactory } = require('@nestjs/core');
+/* const { NestFactory } = require('@nestjs/core');
 const { AppModule } = require('../dist/app.module');
 const { ExpressAdapter } = require('@nestjs/platform-express');
 
@@ -16,3 +16,4 @@ async function createNestServer(expressApp) {
 }
 
 module.exports = { createNestServer };
+ */

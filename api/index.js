@@ -1,4 +1,4 @@
-const serverless = require('serverless-http');
+/* const serverless = require('serverless-http');
 const { createNestServer } = require('./nest-server');
 const express = require('express');
 
@@ -29,4 +29,4 @@ createNestServer(app)
   .catch(err => {
     console.error('Error during server initialization', err);
     process.exit(1);
-  });
+  }); */

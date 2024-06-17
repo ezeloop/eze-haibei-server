@@ -4,8 +4,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { TasksService } from './tasks.service';
 import { TasksController } from './tasks.controller';
 import { Task, TaskSchema } from './task.schema';
-import { FoldersModule } from 'src/folders/folders.module';
-import { FoldersService } from 'src/folders/folders.service';
+import { FoldersModule } from '../folders/folders.module';
+import { FoldersService } from '../folders/folders.service';
 
 @Module({
   imports: [

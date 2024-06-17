@@ -4,7 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Task } from './task.schema';
 import { CreateTaskDto } from './dtos/create-task.dto';
-import { FoldersService } from 'src/folders/folders.service';
+import { FoldersService } from '../folders/folders.service';
 import { UpdateTaskDto } from './dtos/update-task.dto';
 import { CastError } from 'mongoose/lib/error';
 
