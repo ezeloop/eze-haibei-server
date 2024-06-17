@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { Callback } from 'aws-lambda';
-import { Server } from 'http';
-let cachedServer: Server;
+import serverless from 'serverless-http';
+
+let server: any;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -12,15 +12,16 @@ async function bootstrap() {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
-  
-  await app.listen(4000);
-    return app.getHttpAdapter().getInstance();
 
+  await app.init();
+
+  const expressApp = app.getHttpAdapter().getInstance();
+  return serverless(expressApp);
 }
-export const handler = async (event: any, context: any, callback: Callback) => {
-  if (!cachedServer) {
-    const app = await bootstrap();
-    cachedServer = app;
+
+export const handler = async (event: any, context: any) => {
+  if (!server) {
+    server = await bootstrap();
   }
-  return cachedServer(event, context, callback);
+  return server(event, context);
 };
