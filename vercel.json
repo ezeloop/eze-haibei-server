@@ -13,6 +13,7 @@
     }
   ],
   "env": {
-    "FRONT_END_URL": "https://haibei-and-eze.netlify.app"
+    "FRONT_END_URL": "https://haibei-and-eze.netlify.app",
+    "MONGODB_URI": "mongodb+srv://<ezeloopmongo>:<s7f3wl4KJgGE5EwT>@Application-0.mongodb.net/haibei-eze?retryWrites=true&w=majority"
   }
 }

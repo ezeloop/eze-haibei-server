@@ -3,6 +3,10 @@ const { createNestServer } = require('./nest-server');
 const express = require('express');
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 const whitelist = ['*'];
 
 app.use((req, res, next) => {
@@ -14,11 +18,15 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,Authorization');
     res.setHeader('Access-Control-Allow-Credentials', true);
   }
-  // Pass to next layer of middleware
   if (req.method === 'OPTIONS') res.sendStatus(200);
   else next();
 });
 
-createNestServer(app).then(() => {
-  module.exports.handler = serverless(app);
-});
+createNestServer(app)
+  .then(() => {
+    module.exports = serverless(app); // Ensure this is exported correctly
+  })
+  .catch(err => {
+    console.error('Error during server initialization', err);
+    process.exit(1);
+  });
